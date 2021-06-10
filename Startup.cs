@@ -1,7 +1,9 @@
+using Covid_App_2._0.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,6 +23,12 @@ namespace Covid_App_2._0
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<CovidLogsContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("CovidLogsDbConnection"))
+            );
+            services.AddDbContext<CovidLogsContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("UserDbConnection"))
+            );
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
