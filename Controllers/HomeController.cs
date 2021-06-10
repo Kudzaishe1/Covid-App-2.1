@@ -8,14 +8,27 @@ namespace Covid_App_2._0.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult GetAll()
         {
-            return Ok("This is working");
+            return Ok("This is GETAll");
+        }
+        
+        public IActionResult GetUser([FromQuery] string Email)
+        {
+            return Ok("This is GET Email: "+Email);
+        }
+        public IActionResult Post([FromQuery] string Email) 
+        {
+            return Ok("This is POST Email: "+Email);
+        }
+        public IActionResult Update([FromQuery] string Email)
+        {
+            return Ok("This is Update");
+        }
+        public IActionResult DeleteLog([FromQuery] int ID)
+        {
+            return Ok("This is Delete");
         }
 
-        public IActionResult Insert() 
-        {
-            return Ok("This is done");
-        }
     }
 }
