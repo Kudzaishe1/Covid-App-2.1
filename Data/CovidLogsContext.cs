@@ -11,7 +11,7 @@ namespace Covid_App_2._0.Data
     {
         public CovidLogsContext(DbContextOptions<CovidLogsContext> options) : base(options)
         {
-                
+                //Testing
         }
         public DbSet<CovidLogs> Logs{ get; set; }
     }
