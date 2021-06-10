@@ -26,9 +26,7 @@ namespace Covid_App_2._0
             services.AddDbContext<CovidLogsContext>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("CovidLogsDbConnection"))
             );
-            services.AddDbContext<CovidLogsContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("UserDbConnection"))
-            );
+           
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
@@ -63,7 +61,7 @@ namespace Covid_App_2._0
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
 
             app.UseSpa(spa =>

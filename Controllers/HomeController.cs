@@ -12,5 +12,10 @@ namespace Covid_App_2._0.Controllers
         {
             return Ok("This is working");
         }
+
+        public IActionResult Insert() 
+        {
+            return Ok("This is done");
+        }
     }
 }

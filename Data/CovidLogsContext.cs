@@ -14,5 +14,6 @@ namespace Covid_App_2._0.Data
            
         }
         public DbSet<CovidLogs> Logs{ get; set; }
+        public DbSet<UserDb> Users { get; set; }
     }
 }

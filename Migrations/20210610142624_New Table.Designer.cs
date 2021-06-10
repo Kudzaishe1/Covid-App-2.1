@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Covid_App_2._0.Migrations
 {
     [DbContext(typeof(CovidLogsContext))]
-    [Migration("20210610134237_CreatingTables")]
-    partial class CreatingTables
+    [Migration("20210610142624_New Table")]
+    partial class NewTable
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,25 @@ namespace Covid_App_2._0.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Logs");
+                });
+
+            modelBuilder.Entity("Covid_App_2._0.Models.UserDb", b =>
+                {
+                    b.Property<string>("Email")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Employee")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("text");
+
+                    b.Property<string>("type")
+                        .HasColumnType("text");
+
+                    b.HasKey("Email");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

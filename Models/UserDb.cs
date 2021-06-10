@@ -9,10 +9,9 @@ namespace Covid_App_2._0.Models
     public class UserDb
     {
         [Key]
-        public int email { get; set; }
+        public string Email { get; set; }
         public string Name { get; set; }
       
-        
         public string Employee { get; set; }
 
         public string type { get; set; }
