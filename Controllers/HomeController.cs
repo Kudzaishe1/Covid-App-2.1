@@ -32,11 +32,12 @@ namespace Covid_App_2._0.Controllers
 
         [HttpGet]
         [Route("LogsByUserId")]
-        public IActionResult GetUserLogs([FromQuery] string Email)
+        public IActionResult GetUserLogs([FromQuery] int id)
         {
-            IEnumerable<CovidLogs> objList;
-            return Ok("Testing");
+            var obj= _db.Logs.Find(id);
+            return Ok(obj);
         }
+
         [HttpPost]
         [Route("NewLog")]
         public IActionResult PostLog([FromQuery] string Email) 
