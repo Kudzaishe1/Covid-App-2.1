@@ -7,7 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 //Link to Swagger: https://localhost:44312/swagger/index.html
-
+//comment
 namespace Covid_App_2._0.Controllers
 {
 
