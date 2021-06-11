@@ -14,27 +14,27 @@ namespace Covid_App_2._0.Controllers
     public class HomeController : Controller
     {
         [HttpGet]
-        [Route("GetAllLogs")]
-        public IActionResult GetAll()
+        [Route("AllLogs")]
+        public IActionResult GetAlllogs()
         {
-            return Ok("This is GETAll");
+            return Ok("This is GET All");
         }
 
         [HttpGet]
-        [Route("GetLogsByUserId")]
+        [Route("LogsByUserId")]
         public IActionResult GetUserLogs([FromQuery] string Email)
         {
             return Ok("This is GET Email: "+Email);
         }
         [HttpPost]
-        [Route("PostNewLog")]
-        public IActionResult Post([FromQuery] string Email) 
+        [Route("NewLog")]
+        public IActionResult PostLog([FromQuery] string Email) 
         {
             return Ok("This is POST Email: "+Email);
         }
         [HttpPut]
         [Route("UpdateLog")]
-        public IActionResult Update([FromQuery] string Email)
+        public IActionResult UpdateLog([FromQuery] string Email)
         {
             return Ok("This is Update");
         }
@@ -44,6 +44,22 @@ namespace Covid_App_2._0.Controllers
         {
             return Ok("This is Delete");
         }
+        //User DB Section
+
+        [HttpPost]
+        [Route("createUser")]
+        public IActionResult CreateUser([FromQuery] string Email)
+        {
+            return Ok("create a user: " + Email);
+        }
+
+        [HttpPut]
+        [Route("editUser")]
+        public IActionResult EditUser([FromQuery] string Email)
+        {
+            return Ok("Edit a user: " + Email);
+        }
+
 
     }
 }
