@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Covid_App_2._0.Data;
+using Covid_App_2._0.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +15,29 @@ namespace Covid_App_2._0.Controllers
     [Route("[controller]")]
     public class HomeController : Controller
     {
+        private readonly CovidLogsContext _db;
+
+        public HomeController(CovidLogsContext db)
+        {
+            _db = db;
+        }
+
         [HttpGet]
         [Route("AllLogs")]
         public IActionResult GetAlllogs()
         {
-            return Ok("This is GET All");
+            IEnumerable<CovidLogs> objList= _db.Logs;
+            return Ok(objList);
         }
 
         [HttpGet]
         [Route("LogsByUserId")]
-        public IActionResult GetUserLogs([FromQuery] string Email)
+        public IActionResult GetUserLogs([FromQuery] int id)
         {
-            return Ok("This is GET Email: "+Email);
+            var obj= _db.Logs.Find(id);
+            return Ok(obj);
         }
+
         [HttpPost]
         [Route("NewLog")]
         public IActionResult PostLog([FromQuery] string Email) 
